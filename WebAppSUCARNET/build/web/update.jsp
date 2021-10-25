@@ -10,12 +10,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    
+        
+    
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registro Actualizado</title>
     </head>
     <body>
-
+   
         <%
             String ids = request.getParameter("id");
             String isbn = request.getParameter("isbn");
@@ -40,5 +43,7 @@
         %>
         <h1>El Registro se actualizo con exito</h1>
         <a href="index.jsp" name="regesar" class="btn btn-primary">Regresar al Index</a>
+        
     </body>
+ 
 </html>

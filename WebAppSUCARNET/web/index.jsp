@@ -55,9 +55,12 @@
     </style>
 
     <body>
+        <%@ include file="header.jsp" %>
         <br>
         <div class="container">
+            <c:if test="${sessionScope.nivel eq 1}">
             <div class="card datos">
+                
                 <h5 class="card-header">Formulario de Registro</h5>
                 <div class="card-body">
                     <form action="insert.jsp" method="post">
@@ -93,7 +96,9 @@
                     </form>
                     
                 </div>
+                
             </div>
+            </c:if>
 
             <div class="card datos2">
                 <h5 class="card-header">Libros Registrados</h5>
@@ -103,15 +108,17 @@
                         SELECT * from libro;
                     </sql:query>
 
-
+                        
                     <table class="table table-dark table-hover">
                         <tr>
-                            <th name="id">id</th>
-                            <th>Isbn</th>
+                            <th name="id">ID</th>
+                            <th>ISBN</th>
                             <th>Titulo</th>
                             <th>Autor</th>
                             <th>Editorial</th>
+                            <c:if test="${sessionScope.nivel eq 2}">
                             <th>Acciones</th>
+                             </c:if>
                         </tr>
                         <c:forEach var = "row" items = "${result.rows}">
                             <tr>
@@ -120,7 +127,8 @@
                                 <td><c:out value = "${row.titulo}"/></td>
                                 <td><c:out value = "${row.autor}"/></td>
                                 <td><c:out value = "${row.editorial}"/></td>
-                                <td> <a type="button"  
+                                <c:if test="${sessionScope.nivel eq 2}">
+                                    <td> <a type="button"  
                                              class="btn btn-dark btn-editar" 
                                              data-toggle="tooltip" 
                                              data-placement="bottom"
@@ -135,6 +143,11 @@
                                             href="delete.jsp?id=${row.Id}"
                                             title="Eliminar"> <i class="fas fa-trash-alt"></i>
                                     </a> </td>
+                
+                                </c:if>
+                                      
+                                    
+                                
                             </tr>
                         </c:forEach>
                     </table>

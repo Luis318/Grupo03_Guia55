@@ -27,6 +27,7 @@
     </head>
 
     <body>
+        <a href="index.jsp" name="regesar" class="btn btn-primary">INICIO</a>
         <style>
             .datos {
                 width: 800px;
@@ -110,7 +111,7 @@
                                 <input type="text" class="form-control" name="editorial" id="editorial" value="<%=editorial%>" disabled="true">
                             </div>
                         </div>
-                       <a href="index.jsp" name="regesar" class="btn btn-primary">Regresar al Index</a>
+                       
                     </form>  
                 </div>
             </div>
